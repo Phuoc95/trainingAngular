@@ -8,6 +8,8 @@ import { ComponentToViewComponent } from './components/component-to-view/compone
 import { ViewToComponentComponent } from './components/view-to-component/view-to-component.component';
 import { TwoWayBindingComponent } from './components/two-way-binding/two-way-binding.component';
 import { StructuralComponent } from './components/structural/structural.component';
+import { FormatDataPipe } from './pipe/format-data.pipe';
+import { FilterDataPipe } from './pipe/filter-data.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { StructuralComponent } from './components/structural/structural.componen
     ComponentToViewComponent,
     ViewToComponentComponent,
     TwoWayBindingComponent,
-    StructuralComponent
+    StructuralComponent,
+    FormatDataPipe,
+    FilterDataPipe
   ],
   imports: [
     BrowserModule,
