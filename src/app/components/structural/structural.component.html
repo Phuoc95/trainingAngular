@@ -1,0 +1,81 @@
+<!-- <div class="card border-primary mb-3">
+    <div class="card-header">Structural</div>
+    <div class="card-body">
+        <h5 class="card-title" [class.text-success]="check">Test</h5>
+        <div class="form-group">
+            <label for="">Result : {{name}}</label>
+            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""
+                (keyup.enter)="onKeyUpEnter($event)">
+        </div>
+    </div>
+</div> -->
+
+<!-- <div class="card border-primary mb-3">
+    <div class="card-header">Structural</div>
+    <div class="card-body">
+        <div *ngIf="isShow">
+            <h1> Fullname: {{username}} </h1>
+        </div>
+
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="rdCheck" (click)="onChange(true)">
+                OK
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="rdCheck" (click)="onChange(false)">
+                NotOk
+            </label>
+        </div>
+        <button class="btn bnt-primary" (click)="onToggle()">Toggle</button>
+
+        <h3 *ngIf="isCheck; else elseBlock">Hople</h3>
+        <ng-template #elseBlock>Ko Hop le</ng-template>
+
+
+        <div class="form-group">
+            <label for="">Age :</label>
+            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""
+                [(ngModel)]="age">
+
+            <ng-container *ngIf="age > 20; else otherBlock">
+                <h4 class="text-success"> du tuoi</h4>
+            </ng-container>
+
+            <ng-container></ng-container>
+            
+
+            <ng-template #otherBlock>
+                <h4 class="text-danger">chua du</h4>
+            </ng-template>
+        </div>
+    </div>
+</div> -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Area</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of states;
+                    let i= index;
+                    let o = odd;"
+            [style.background-color] = "o == true ? 'red' : 'gray'"
+            trackBy:myTrackBy
+
+            
+        >
+            <td scope="row">{{i+1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.area}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button type="button" name="" id="" class="btn btn-primary">MoreData</button>
