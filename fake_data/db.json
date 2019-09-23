@@ -1,16 +1,28 @@
 {
-  "posts": [
+  "courses": [
     {
       "id": 1,
-      "name": "json-server",
-      "des": "typicode",
-      "fee": 10
+      "name": "php",
+      "des": "php laravel",
+      "fee": 29
     },
     {
-      "name": "php",
-      "des": "hoc php",
-      "fee": "20",
+      "name": "nodejs",
+      "des": "node nang cao",
+      "fee": 30,
       "id": 7
+    },
+    {
+      "name": "math",
+      "des": "10",
+      "fee": 10,
+      "id": 8
+    },
+    {
+      "name": "qwe",
+      "des": "qwe",
+      "fee": 11,
+      "id": 9
     }
   ]
 }
