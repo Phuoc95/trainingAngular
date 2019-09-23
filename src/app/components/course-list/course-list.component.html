@@ -1,6 +1,6 @@
 <h1>List Courses</h1>
 
-<button type="button" class="btn btn-primary" [routerLink]="['/courses/add']">AddNew</button>
+<button type="button" class="btn btn-primary" [routerLink]="['/courses/add']" [style.margin-bottom.px]="10" >AddNew</button>
 <table class="table">
     <thead>
         <tr>
@@ -20,7 +20,7 @@
             <!-- <td>{{ item.fee | currency : 'USD'}}</td> -->
             <td>
                 <a  class="btn btn-primary mr-2" [routerLink]="['/courses',item.id,'edit']">Edit</a>
-                <a  class="btn btn-danger" [routerLink]="['delete']">Delete</a>
+                <a  class="btn btn-danger" (click)="onDelete(item.id)" >Delete</a>
             </td>
         </tr>
     </tbody>

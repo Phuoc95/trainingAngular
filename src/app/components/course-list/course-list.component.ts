@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from './../../services/course.service';
 import { Subscription } from 'rxjs';
+import * as _ from 'lodash';
 
 
 @Component({
@@ -27,6 +28,14 @@ export class CourseListComponent implements OnInit {
         if (this.subscription) {
             this.subscription.unsubscribe()
         }
+    }
+
+    onDelete(id) {
+        this.subscription = this.courseService.delCourse(id).subscribe(res => {
+            _.remove(this.courses, (item)=>{
+                return item.id === id
+            })
+        })
     }
 
 }

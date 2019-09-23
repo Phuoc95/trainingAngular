@@ -6,10 +6,8 @@ import { HttpClientModule } from '@angular/common/http'
 
 
 import { AppComponent } from './app.component';
-// import { HelloComponent } from './hello/hello.component';
 // import { ComponentToViewComponent } from './components/component-to-view/component-to-view.component';
 // import { ViewToComponentComponent } from './components/view-to-component/view-to-component.component';
-// import { TwoWayBindingComponent } from './components/two-way-binding/two-way-binding.component';
 // import { StructuralComponent } from './components/structural/structural.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { CourseAddComponent } from './components/course-add/course-add.component';
@@ -60,10 +58,8 @@ const appRoutes: Routes = [
     CourseEditComponent,
     CourseListComponent,
     HomeComponent,
-    // HelloComponent,
     // ComponentToViewComponent,
     // ViewToComponentComponent,
-    // TwoWayBindingComponent,
     // StructuralComponent
   ],
   imports: [
