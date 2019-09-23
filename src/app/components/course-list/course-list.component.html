@@ -1,0 +1,27 @@
+<h1>List Courses</h1>
+
+<button type="button" class="btn btn-primary" [routerLink]="['/courses/add']">AddNew</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Des</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of courses; let i = index">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.des}}</td>
+            <td>{{item.fee > 0 ? (item.fee | currency : 'USD' :true)  : 'free'}}</td>
+            <!-- <td>{{ item.fee | currency : 'USD'}}</td> -->
+            <td>
+                <a  class="btn btn-primary mr-2" [routerLink]="['/courses',item.id,'edit']">Edit</a>
+                <a  class="btn btn-danger" [routerLink]="['delete']">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,11 +1,26 @@
-<h1 class="text-center">Angular</h1>
+<!-- <h1 class="text-center">Angular</h1>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <!-- <component-to-view></component-to-view>
-      <view-to-component></view-to-component> -->
-      <!-- <two-way-binding></two-way-binding> -->
+      <component-to-view></component-to-view>
+      <view-to-component></view-to-component>
+      <two-way-binding></two-way-binding>
       <app-structural></app-structural>
+    </div>
+  </div>
+</div> -->
+<div class="container">
+  <nav class="nav justify-content-center">
+    <a class="nav-link" [routerLink]="[ '' ]" routerLinkActive="active_link" [routerLinkActiveOptions]="{exact:true}">Homepage</a>
+    <a class="nav-link" [routerLink]="[ '/courses' ]" routerLinkActive="active_link" [routerLinkActiveOptions]="{exact:true}">Courses</a>
+    <a class="nav-link" [routerLink]="['/cc']" routerLinkActive="active_link" [routerLinkActiveOptions]="{exact:true}">Test</a>
+  </nav>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

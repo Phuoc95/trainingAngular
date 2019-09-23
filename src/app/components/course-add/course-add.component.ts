@@ -1,0 +1,21 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-course-add',
+  templateUrl: './course-add.component.html',
+  styleUrls: ['./course-add.component.css']
+})
+export class CourseAddComponent implements OnInit {
+  public course = {};
+
+  constructor() { }
+
+  ngOnInit() {
+    
+  }
+
+  onSubmit() {
+    console.log(this.course, 99);
+  }
+
+}

@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "json-server",
+      "des": "typicode",
+      "fee": 10
+    },
+    {
+      "name": "php",
+      "des": "hoc php",
+      "fee": "20",
+      "id": 7
+    }
+  ]
+}

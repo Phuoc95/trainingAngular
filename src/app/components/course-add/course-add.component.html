@@ -1,0 +1,16 @@
+<form>
+    <h2>Add New</h2>
+    <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="course.name">
+    </div>
+    <div class="form-group">
+        <label for="">Des</label>
+        <input type="text" class="form-control" name="des" [(ngModel)]="course.des">
+    </div>
+    <div class="form-group">
+        <label for="">Price</label>
+        <input type="number" class="form-control" name="fee" [(ngModel)]="course.fee">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()" >ADD</button>
+</form>
