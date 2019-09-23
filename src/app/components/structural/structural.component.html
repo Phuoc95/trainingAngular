@@ -60,23 +60,44 @@
             <th>ID</th>
             <th>Name</th>
             <th>Area</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of states;
+        <tr>
+            <td>
+                <input type="text" class="form-control" [(ngModel)]="idState">
+            </td>
+            <td>
+                <input type="text" class="form-control" [(ngModel)]="name">
+            </td>
+            <td>
+                <select name="" id="input" class="form-control" [(ngModel)]="status">
+                    <option value="true">Active</option>
+                    <option value="false">Deactive</option>
+                </select>
+            </td>
+        </tr>
+        <tr *ngFor="let item of states | filterData : idState : name : status;
                     let i= index;
                     let o = odd;"
-            [style.background-color] = "o == true ? 'red' : 'gray'"
+            [style.background-color] = "o == true ? 'dark' : 'gray'"
             trackBy:myTrackBy
+<<<<<<< HEAD
             [ngClass]="{'class3': true, 'class4': false}"
 
             
+=======
+>>>>>>> e823df03c61438cb4d8e88905508757fd31441f7
         >
             <td scope="row">{{i+1}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.area}}</td>
+            <td>{{item.name| titlecase}}</td>
+            <td>{{item.area| formatData}}</td>
+            <td>{{item.status}}</td>
         </tr>
     </tbody>
 </table>
 
-<button type="button" name="" id="" class="btn btn-primary">MoreData</button>
+<button type="button" class="btn btn-primary"
+    [ngStyle]="setStyle()"
+>MoreData</button>
