@@ -1,0 +1,130 @@
+<h2 class="text-center">Templete Driven Form</h2>
+<form #formUser="ngForm" (ngSubmit)="onSaveUser(formUser)">
+    <div class="form-group">
+        <label for="">Username</label>
+        <input  type="text" 
+                class="form-control"
+                name="username"
+                required
+                minlength="5"
+                maxlength="15"
+                [(ngModel)]="user.username"
+                #username="ngModel"
+        >
+        <!-- <strong class="form-text text-info "> {{username.className}}</strong> -->
+        <!-- <strong class="form-text text-info "> {{username.errors  | json }}</strong> -->
+        <!-- <small class="form-text text-danger" *ngIf="username.dirty &&  username.errors && username.errors.required">Truong ni bat buoc</small> -->
+        <!-- <small class="form-text text-danger" *ngIf="username.dirty &&  username.errors?.minlength">Toi thieu 2 ktu</small> -->
+        <app-errors-validate 
+            [control]="username" 
+            [name-control]="'Username'"
+        > 
+        </app-errors-validate>
+    </div>
+    <div class="form-group">
+        <label for="">Emai</label>
+        <input  type="email" 
+                class="form-control" 
+                name="email"
+                required
+                pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                [(ngModel)]="user.email"
+                #email="ngModel"
+        >
+        <small class="form-text text-danger" *ngIf="email.dirty &&  email.errors?.required">Truong ni bat buoc</small>
+        <small class="form-text text-danger" *ngIf="email.dirty &&  email.errors?.pattern">ko dung dinh dang</small>
+    </div>
+    <div class="form-group">
+        <label for="">Password</label>
+        <input  type="password" 
+                class="form-control" 
+                name="password"
+                required
+                minlength="5"
+                [(ngModel)]="user.password"
+                #password="ngModel"
+        >
+        <small class="form-text text-danger" *ngIf="password.dirty &&  password.errors?.required">Truong ni bat buoc</small>
+        <small class="form-text text-danger" *ngIf="password.dirty &&  password.errors?.minlength">Nhap lon hon 3 ktu</small>
+    </div>
+    <div class="form-group">
+        <label for="">Phone</label>
+        <input  type="text" 
+                class="form-control" 
+                name="phone"
+                required
+                [(ngModel)]="user.phone"
+                #phone="ngModel"
+        >
+        <small class="form-text text-danger" *ngIf="phone.dirty &&  phone.errors?.required">Truong ni bat buoc</small>
+        <!-- <small class="form-text text-danger" *ngIf="email.dirty &&  email.errors?.pattern">ko dung dinh dang</small> -->
+    </div>
+    
+    Gender
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" [value]="1" [(ngModel)]="user.gender">
+        <label class="form-check-label" for="gender1">
+            Male
+        </label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" [value]="0" [(ngModel)]="user.gender">
+        <label class="form-check-label" for="gender2">
+            Female
+        </label>
+    </div>
+
+    <div>
+        <h4>Favorite</h4>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input"
+                    type="checkbox" 
+                    id="inlineCheckbox1"
+                    value="music"
+                    name="favorite"
+                    [(ngModel)]="user.favorite"
+                    #favorite="ngModel"
+            >
+            <label class="form-check-label" for="inlineCheckbox1">Music</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input"
+                type="checkbox" 
+                id="inlineCheckbox1"
+                value="movie"
+                name="favorite"
+                [(ngModel)]="user.favorite"
+                #favorite="ngModel"
+            >
+            <label class="form-check-label" for="inlineCheckbox2">Movie</label>
+        </div>
+    </div>
+
+
+    <!-- <div ngModelGroup="testgrp" #nameCtrl="ngModelGroup">  
+        <div class="form-group">
+                <label for="">test1</label>
+                <input  type="password" 
+                        class="form-control" 
+                        [(ngModel)]="user.test1"
+                        name="test1"
+                        required              
+                >
+            </div>
+            <div class="form-group">
+                <label for="">test2</label>
+                <input  type="text" 
+                        class="form-control" 
+                        [(ngModel)]="user.test2"
+                        name="test2"
+                        #test2="ngModel"                       
+                >
+            </div>
+    </div> -->
+
+
+    
+    <!-- <button type="submit" class="btn btn-primary mr-2" [disabled]="!formUser.form.valid" >Submit</button> -->
+    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+    <button type="reset" class="btn btn-danger">Reset</button>
+</form>

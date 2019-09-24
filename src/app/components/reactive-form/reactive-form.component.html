@@ -1,0 +1,123 @@
+<h2 class="text-center">Reactive Form</h2>
+<form [formGroup]="formUser" (ngSubmit)="onSave()" >
+        <div class="form-group">
+            <label for="">Username</label>
+            <input  type="text" 
+                    class="form-control"
+                    name="username"
+                    formControlName="username"
+            >       
+            <!-- <small class="form-text text-danger" *ngIf="formUser.controls.username.dirty && formUser.controls.username.errors?.required">Truong ni bat buoc</small>
+            <small class="form-text text-danger" *ngIf="formUser.controls.username.dirty && formUser.controls.username.errors?.minlength">nhap lon hon 3 ktu</small> -->
+            <app-errors-validate 
+                [control]="formUser.controls.username" 
+                [name-control]="'Username'"
+            > 
+            </app-errors-validate>
+        </div>
+        <div class="form-group">
+            <label for="">Emai</label>
+            <input  type="email" 
+                    class="form-control" 
+                    name="email"       
+                    formControlName="email"            
+            >
+            <!-- <small class="form-text text-danger" *ngIf="formUser.controls.email.dirty && formUser.controls.email.errors?.required">Truong ni bat buoc</small>
+            <small class="form-text text-danger" *ngIf="formUser.controls.email.dirty && formUser.controls.email.errors?.pattern">ko dung dinh dang</small> -->
+            <app-errors-validate 
+                [control]="formUser.controls.email" 
+                [name-control]="'email'"
+            > 
+            </app-errors-validate>
+        </div>
+        <div class="form-group">
+            <label for="">Password</label>
+            <input  type="password" 
+                    class="form-control" 
+                    name="password"    
+                    formControlName="password"                     
+            >
+            <!-- <small class="form-text text-danger" *ngIf="formUser.controls.password.dirty && formUser.controls.password.errors?.required">Truong ni bat buoc</small> -->
+            <app-errors-validate 
+                [control]="formUser.controls.password" 
+                [name-control]="'password'"
+            > 
+            </app-errors-validate>
+        </div>
+        <div class="form-group">
+            <label for="">Phone</label>
+            <input  type="text" 
+                    class="form-control" 
+                    name="phone"    
+                    formControlName="phone"                  
+            >
+            <!-- <small class="form-text text-danger" *ngIf="formUser.controls.phone.dirty && formUser.controls.phone.errors?.required">Truong ni bat buoc</small> -->
+            <app-errors-validate 
+                [control]="formUser.controls.phone" 
+                [name-control]="'phone'"
+            > 
+            </app-errors-validate>
+        </div>
+        
+        Gender
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" [value]="1" formControlName="gender" >
+            <label class="form-check-label" for="gender1">
+                Male
+            </label>
+            </div>
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" [value]="0" formControlName="gender" >
+            <label class="form-check-label" for="gender2">
+                Female
+            </label>
+        </div>
+
+        <!-- <div>
+            <h4>Favorite</h4>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input"
+                        type="checkbox" 
+                        id="inlineCheckbox1"
+                        formControlName="favorite"
+                   
+                >
+                <label class="form-check-label" for="inlineCheckbox1">Music</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input"
+                    type="checkbox" 
+                    id="inlineCheckbox1"
+                    [value]="movie"
+                    name="favorite"
+                    formControlName="favorite"
+                  
+                >
+                <label class="form-check-label" for="inlineCheckbox2">Movie</label>
+            </div>
+        </div> -->
+
+
+        <label for="type">Sites</label>
+        <div class="checkbox-group" style="margin-top:40px">
+            <div class="checkbox-wrap" id="productsContainer" formArrayName="sites">
+                <input type="checkbox" id="all">
+                <label for="all">All mills</label>
+                <div *ngFor="let site of sites; let i = index">
+                    <input type="checkbox" [id]="i" [formControlName]="i" />
+                    <label [for]="i"> {{ site }} </label>
+                </div>
+            </div>
+        </div>
+        <app-errors-validate 
+            [control]="formUser.controls.sites" 
+            [name-control]="'sites'"
+        > 
+        </app-errors-validate>
+
+
+        
+        <!-- <button type="submit" class="btn btn-primary mr-2" [disabled]="formUser.invalid" #checkk >Submit</button> -->
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <button type="button" class="btn btn-danger" (click)="onResetForm()" >Reset</button>
+    </form>
