@@ -23,9 +23,9 @@ export class CourseAddComponent implements OnInit {
     this.subscription = this.courseService
       .addCourse(this.course)
       .subscribe(res => {
-        if (res && res.id) {
-            this.routerService.navigate(['/courses'])
-        }
+        // if (res && res.id) {
+        //     this.routerService.navigate(['/courses'])
+        // }
       });
   }
 

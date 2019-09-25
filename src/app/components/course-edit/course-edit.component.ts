@@ -34,14 +34,14 @@ export class CourseEditComponent implements OnInit {
     })
   }
 
-  onUpdateCourse() {
-    this.subscription = this.courseService.updateCourse(this.course.id, this.course)
-      .subscribe(res => {
-        if (res) {
-            this.routerService.navigate(['/courses'])
-        }
-      });
-  }
+  // onUpdateCourse() {
+  //   this.subscription = this.courseService.updateCourse(this.course.id, this.course)
+  //     .subscribe(res => {
+  //       if (res) {
+  //           this.routerService.navigate(['/courses'])
+  //       }
+  //     });
+  // }
 
   onDestroy() {
     if (this.subscription) {

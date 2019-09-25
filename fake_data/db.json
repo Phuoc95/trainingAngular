@@ -11,18 +11,6 @@
       "des": "node nang cao",
       "fee": 30,
       "id": 7
-    },
-    {
-      "name": "math",
-      "des": "10",
-      "fee": 10,
-      "id": 8
-    },
-    {
-      "name": "qwe",
-      "des": "qwe",
-      "fee": 11,
-      "id": 9
     }
   ]
 }

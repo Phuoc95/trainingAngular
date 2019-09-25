@@ -15,19 +15,24 @@ import { CourseEditComponent } from './components/course-edit/course-edit.compon
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component'
 
 //services
 import { CourseService } from './services/course.service'
+import { AuthGuard } from './services/guards/auth.guard';
+import { LoginGuard } from './services/guards/login.guard';
 
 
 const appRoutes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    // canDeactivate: [LoginGuard]
   },
   {
     path: 'courses',
     component: CoursesComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -44,6 +49,11 @@ const appRoutes: Routes = [
     ]
   },
   {
+    path: 'login',
+    component: LoginComponent,
+    canDeactivate: [LoginGuard]
+  },
+  {
     path: '**',
     component: NotFoundComponent
   },
@@ -58,6 +68,7 @@ const appRoutes: Routes = [
     CourseEditComponent,
     CourseListComponent,
     HomeComponent,
+    LoginComponent,
     // ComponentToViewComponent,
     // ViewToComponentComponent,
     // StructuralComponent
@@ -69,7 +80,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
   ],
   providers: [
-    CourseService
+    // CourseService,
+    AuthGuard,
+    LoginGuard
   ],
   bootstrap: [AppComponent]
 })

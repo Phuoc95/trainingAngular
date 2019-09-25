@@ -1,0 +1,5 @@
+<button class="btn btn-primary mr-2" (click)="activeLogin()">Active Login</button>
+<button class="btn btn-danger" (click)="disableLogin()"> Dissable Login</button>
+<div class="mt-3"></div>
+<button class="btn btn-primary mr-2" [ngClass]="{'btn-outline-primary': toggle }"  (click)="enableDeactivate()"> Enable Deactivate</button>
+<button class="btn btn-danger" (click)="disableDeactivate()"> Dissable Deactivate</button>
